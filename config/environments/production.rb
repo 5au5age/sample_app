@@ -27,7 +27,8 @@ SampleApp::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true 
+  # above line changed from false http://stackoverflow.com/questions/7376966/heroku-problem-the-page-you-were-looking-for-doesnt-exist
 
   # Generate digests for assets URLs.
   config.assets.digest = true
