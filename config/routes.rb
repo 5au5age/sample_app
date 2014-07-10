@@ -1,6 +1,8 @@
 SampleApp::Application.routes.draw do
   #get "users/new"
   match '/signup',   to: 'users#new',             via: 'get'
+  match '/signin',   to: 'sessions#new',          via: 'get'
+  match '/signout',  to: 'sessions#destroy',      via: 'delete'
   match '/help',     to: 'static_pages#help',     via: 'get'
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/contact',  to: 'static_pages#contact',  via: 'get'
@@ -26,6 +28,7 @@ SampleApp::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   # Example resource route with options:
   #   resources :products do
